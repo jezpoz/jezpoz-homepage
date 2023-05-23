@@ -2,18 +2,27 @@
   "private": true,
   "scripts": {
     "build": "dotenv -- turbo run build",
+    "build:web": "dotenv -- turbo run build --filter=web",
+    "build:sanity": "dotenv -- turbo run build --filter=sanity",
     "dev": "dotenv -- turbo run dev",
+    "dev:web": "dotenv -- turbo run dev --filter=web",
+    "dev:sanity": "dotenv -- turbo run dev --filter=sanity",
+    "deploy": "dotenv -- turbo run deploy",
+    "deploy:web": "dotenv -- turbo run deploy --filter=web",
+    "deploy:sanity": "dotenv -- turbo run deploy --filter=sanity",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "generate-types": "sanity-codegen"
   },
   "devDependencies": {
+    "@sanity/cli": "^3.11.1",
     "dotenv-cli": "^7.2.1",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "prettier": "^2.8.8",
     "sanity-codegen": "^0.9.8",
-    "turbo": "^1.9.3"
+    "turbo": "^1.9.3",
+    "vercel": "^29.4.0"
   },
   "name": "jezpoz-page",
   "packageManager": "npm@9.6.6",

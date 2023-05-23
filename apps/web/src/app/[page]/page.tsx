@@ -1,6 +1,6 @@
 import PageComponents from "@/components/PageComponents";
 import sanityClient from "@/resources/sanity-client";
-import { Page } from "sanity-types";
+import type { Page } from "sanity-types";
 import groq from "groq";
 
 const query = groq`

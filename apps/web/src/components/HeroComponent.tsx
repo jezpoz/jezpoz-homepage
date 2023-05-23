@@ -9,7 +9,7 @@ interface HeroComponentProps {
   component: HeroComponent;
 }
 
-export default function HeroComponent({ component }: HeroComponentProps) {
+export default function Hero({ component }: HeroComponentProps) {
   return (
     <div className="py-4 flex flex-col gap-2 max-w-[900px] mx-auto">
       <h1 className="py-6 font-black text-2xl lg:text-5xl">

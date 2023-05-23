@@ -15,6 +15,7 @@ out/
 
 #sanity
 .sanity/
+sanity.cli.ts
 dist
 
 # misc

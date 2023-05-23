@@ -10,10 +10,27 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "./apps/sanity/dist"]
+    },
+    "build:web": {
+      "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "build:sanity": {
+      "dependsOn": ["^build"],
+      "outputs": ["./apps/sanity/dist"]
+    },
     "lint": {},
+    "deploy": {},
     "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:web": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:sanity": {
       "cache": false,
       "persistent": true
     }
