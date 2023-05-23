@@ -1,0 +1,8 @@
+{
+  "name": "sanity-types",
+  "version": "1.0.0",
+  "description": "Types generated from Sanity Schema",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}
