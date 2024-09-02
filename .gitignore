@@ -1,8 +1,29 @@
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+#Logs
+logs
+*.log
+
+# Coverage directory used by testing tools
+/coverage
+
+# Misc
+.DS_Store
+*.pem
+
+# Built files
 .astro
 .netlify
 dist
+.sanity
 
+# Typescript
+*.tsbuildinfo
+
+# Dotenv and similar local-only files
 .env
 .env.*
 !.env.example
