@@ -1,0 +1,13 @@
+{
+  "name": "jezpoz.dev",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm run dev --ws",
+    "dev:sanity": "npm run dev -w @jezpoz.dev/sanity",
+    "dev:web": "npm run dev -w @jezpoz.dev/web"
+  },
+  "workspaces": [
+    "./apps/**/*",
+    "./packages/**/*"
+  ]
+}

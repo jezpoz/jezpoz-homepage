@@ -1,0 +1,7 @@
+{
+  "name": "@jezpoz.dev/sanity",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "echo dev in sanity"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@jezpoz.dev/web",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "^5.5.1",
+    "astro": "^4.15.2",
+    "typescript": "^5.5.4"
+  }
+}
