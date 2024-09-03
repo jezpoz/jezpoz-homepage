@@ -6,7 +6,7 @@ import sanity from '@sanity/astro';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'https://jezpoz-astro.netlify.app',
+  site: 'https://jezpoz.netlify.app',
   integrations: [
     sanity({
       projectId: 'rz9y3u62',
