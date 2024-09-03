@@ -1,0 +1,37 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
+import type { SanityDocument } from "@sanity/client";
+import { loadQuery } from "../../sanity/lib/load-query";
+
+export async function getStaticPaths() {
+  const { data: posts } = await loadQuery<SanityDocument[]>({
+    query: `*[_type == "post"]`,
+  });
+  console.log(posts);
+  return posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug.current,
+      },
+      props: {
+        post,
+      }
+    };
+  });
+}
+
+const { post } = Astro.props;
+---
+<!doctype html>
+<html>
+  <head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <main>
+      <h1>{post.title}</h1>
+    </main>
+  </body>
+</html>

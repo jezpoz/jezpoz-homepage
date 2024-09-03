@@ -2,15 +2,18 @@
   "name": "jezpoz.dev",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npm run dev -w=@jezpoz.dev/sanity & npm run dev -w=@jezpoz.dev/web",
-    "dev:sanity": "npm run dev -w @jezpoz.dev/sanity",
-    "dev:web": "npm run dev -w @jezpoz.dev/web",
-    "build": "npm run build --ws",
-    "build:sanity": "npm run build @jezpoz.dev/sanity",
-    "build:web": "npm run build @jezpoz.dev/web"
+    "dev": "dotenv -e ./.env -- npm run dev -w=@jezpoz.dev/sanity & npm run dev -w=@jezpoz.dev/web",
+    "dev:sanity": "dotenv -e .env -- npm run dev -w @jezpoz.dev/sanity",
+    "dev:web": "dotenv -e .env -- npm run dev -w @jezpoz.dev/web",
+    "build": "dotenv -e .env.prod -- npm run build --ws",
+    "build:sanity": "dotenv -e .env.prod -- npm run build @jezpoz.dev/sanity",
+    "build:web": "dotenv -e .env.prod -- npm run build @jezpoz.dev/web"
   },
   "workspaces": [
     "./apps/**/*",
     "./packages/**/*"
-  ]
+  ],
+  "devDependencies": {
+    "dotenv-cli": "^7.4.2"
+  }
 }
