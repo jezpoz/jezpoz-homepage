@@ -7,22 +7,23 @@ import { loadQuery } from "../../sanity/lib/load-query";
 
 export async function getStaticPaths() {
   const { data: posts } = await loadQuery<SanityDocument[]>({
-    query: `*[_type == "post"]`,
+    query: `*[_type == "post"]{slug}`,
   });
-  console.log(posts);
   return posts.map((post) => {
     return {
       params: {
         slug: post.slug.current,
       },
-      props: {
-        post,
-      }
     };
   });
 }
 
-const { post } = Astro.props;
+const { params } = Astro;
+const { data: post } = await loadQuery<SanityDocument>({
+  query: `*[_type == "post" && slug.current == $slug][0]`,
+  params,
+})
+
 ---
 <!doctype html>
 <html>
