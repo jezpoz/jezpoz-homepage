@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import type {SanityDocument, QueryParams} from '@sanity/client';
+import type {SanityDocument} from '@sanity/client';
 import { loadQuery } from "../sanity/lib/load-query";
 
 const { data: page } = await loadQuery<SanityDocument>({

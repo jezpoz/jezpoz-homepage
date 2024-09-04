@@ -11,7 +11,7 @@ const { data: posts } = await loadQuery<SanityDocument[]>({
 <Layout>
   <main>
     <h1>Have some posts!</h1>
-    {posts.map((post) => (
+    {posts.map((post: SanityDocument) => (
       <a href={`/blog/${post.slug.current}`}>{post.title}</a>
     ))}
   </main>

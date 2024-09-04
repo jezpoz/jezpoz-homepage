@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import Layout from '../../layouts/Layout.astro';
 
 import type { SanityDocument } from "@sanity/client";
@@ -8,13 +10,15 @@ export async function getStaticPaths() {
   const { data: posts } = await loadQuery<SanityDocument[]>({
     query: `*[_type == "post"]{slug}`,
   });
-  return posts.map((post) => {
-    return {
+  const paths = []
+  for (const post of posts) {
+    paths.push({
       params: {
         slug: post.slug.current,
-      },
-    };
-  });
+      }
+    })
+  }
+  return paths;
 }
 
 const { params } = Astro;

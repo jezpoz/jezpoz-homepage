@@ -1,4 +1,5 @@
 import { type QueryParams } from 'sanity';
+/* @ts-ignore:disable-next-line */
 import { sanityClient } from 'sanity:client';
 
 const visualEditingEnabled =

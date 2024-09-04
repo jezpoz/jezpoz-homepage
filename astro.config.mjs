@@ -27,6 +27,6 @@ export default defineConfig({
     }),
     react(),
   ],
-  output: 'hybrid',
+  output: 'server',
   adapter: netlify(),
 });
