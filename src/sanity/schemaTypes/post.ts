@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import author from "./author";
 
 export default defineType({
   name: 'post',

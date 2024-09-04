@@ -1,6 +1,5 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import Layout from '../../layouts/Layout.astro';
 
 import type { SanityDocument } from "@sanity/client";
 import { loadQuery } from "../../sanity/lib/load-query";
@@ -25,14 +24,8 @@ const { data: post } = await loadQuery<SanityDocument>({
 })
 
 ---
-<!doctype html>
-<html>
-  <head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <main>
-      <h1>{post.title}</h1>
-    </main>
-  </body>
-</html>
+<Layout>
+  <main>
+    <h1>{post.title}</h1>
+  </main>
+</Layout>

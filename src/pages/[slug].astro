@@ -1,0 +1,33 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../layouts/Layout.astro";
+
+import type {SanityDocument} from '@sanity/client';
+import { loadQuery } from "../sanity/lib/load-query";
+
+export const getStaticPaths = (async() => {
+  const { data: pages } = await loadQuery<SanityDocument[]>({
+    query: '*[_type == "page"]'
+  })
+  const paths = [];
+  for (const page of pages) {
+    paths.push({
+      params: {
+        slug: page.slug.current,
+      }
+    })
+  }
+  return paths;
+}) satisfies GetStaticPaths;
+
+const { params } = Astro;
+const { data: page } = await loadQuery<SanityDocument>({
+  query: `*[_type == "page" && slug.current == $slug][0]`,
+  params,
+})
+---
+<Layout>
+  <main>
+    <h1>{page.title}</h1>
+  </main>
+</Layout>

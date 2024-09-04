@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+import type { SanityDocument } from "@sanity/client";
+import { loadQuery } from "../../sanity/lib/load-query";
+
+const { data: posts } = await loadQuery<SanityDocument[]>({
+  query: `*[_type == "post"]`,
+});
+---
+<Layout>
+  <main>
+    <h1>Have some posts!</h1>
+    {posts.map((post) => (
+      <a href={`/blog/${post.slug.current}`}>{post.title}</a>
+    ))}
+  </main>
+</Layout>
